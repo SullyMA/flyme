@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/doors.css">
+    <title></title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+    
+          <!-- <div class="">
+          </div> -->
+
+          <div class="mapIMG flex-container">
+            <% for (let i = 0; i < doors.length; i++) {
+              if (doors[i] && doors[i].destination) {
+              %>
+                <div>
+             <a href="/destination/<%= i %>"><img class="map" src="<%= doors[i].destination.regionimg %>" alt=""><%= doors[i].destination.region %></a>
+               </div>
+              <% console.log("ejs door1:", doors[i]) %>
+            <% } else {
+              %>
+              <div>
+              Try again with a lower budget
+              </div>
+              <%
+            }
+          } %>
+          </div>
+
+
+        <!-- insert font awesome- heart -->
+      </div>
+  </body>
+</html>

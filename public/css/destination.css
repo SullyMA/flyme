@@ -1,0 +1,194 @@
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+.countryname{
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: grey;
+}
+
+html {
+  background-color: #ecf9ff;
+}
+
+body {
+  color: #272727;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+}
+
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+button {
+  margin-left: 48%;
+    margin-right: 48%;
+    height: 35px;
+    border-radius: -0.5%;
+    background-color: lightcoral;
+    border-top-left-radius: unset;
+    font-size: 17px;
+    width: 100px;
+}
+
+
+h2 {
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    color: grey;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h3{
+  text-align: center;
+  text-decoration: none;
+}
+
+img {
+  height: 194px;
+max-width: 100%;
+vertical-align: middle;
+}
+
+
+
+.cards {
+  display: flex;
+flex-wrap: wrap;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.title{
+  float: left;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+.card {
+  background-color: white;
+border-radius: 0.25rem;
+box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+display: flex;
+flex-direction: initial;
+overflow: hidden;
+width: 367px;
+}
+
+
+.card_image {
+}
+
+.right{
+  float: right;
+}
+
+
+@import "bourbon";
+
+$heart: "\f004";
+$openheart: "\f08a";
+@mixin checkmark($size) {
+  font-family: FontAwesome;
+  font-size: $size;
+  content: $openheart;
+}
+
+@mixin box-style($size) {
+  width: 1.05*$size;
+  height: $size;
+  content: "";
+  position: absolute;
+  margin-left: -1.6*$size;
+  margin-top: 0.1*$size;
+}
+
+//http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.red-heart-checkbox {
+  $primary: #F00;
+  $secondary: #888;
+  $size: 30px;
+
+  visibility: hidden;
+
+  & + label {
+    @include no-select;
+    font-size: $size;
+    padding-left: 0.5*$size;
+    transition: all 0.2s;
+  }
+  &:checked + label:before {
+    content: $heart;
+    color: $primary;
+  }
+  & + label:before {
+    @include box-style($size);
+    @include checkmark($size);
+    transition: all 0.3s;
+    color: $secondary;
+  }
+  & + label:hover:before {
+    transform: scale(1.2);
+  }
+}
+
+//// Layout
+html, body {
+  height: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.control-group { margin: 3px; }
+.attribution {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+//// Typography
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  font-family: Open Sans, Helvetica;
+}
+a, a:visited, a:hover {
+  color: #F00;
+  text-decoration: none;
+}
+h1 {
+  text-align: center;
+}

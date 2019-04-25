@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Your Surprise Destionation</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../css/destination.css">
+  </head>
+  <body>
+    <header>
+      <i class="fal fa-plane-alt"></i>
+    </header>
+    <div class="userprofile">
+      <!-- <form class="" action="/favorites" method="get">
+        <button class="savedflight"type="submit" name="button">Saved Flights</button>
+      </form> -->
+      <!-- insert font awesome shopping bag -->
+    </div>
+    <form id="form" action="/favorites" method="post">
+    <div class="wrapper">
+      <div>
+        <h2>Congratulation, You're going to...</h2>
+          <div class="countryname"> COUNTRY NAME:
+            <span><%=airport.countryCode %></span>
+            <span><%= airport.city %></span>
+            <%= quote[0].OutboundLeg.DepartureDate %>`
+          </div>
+          <div class="main">
+            <h2>Available Flights</h2>
+           <% quote.sort((quoteA, quoteB) => quoteA.MinPrice - quoteB.MinPrice)
+                function removeDuplicates(originalArray, objKey) {
+                  var trimmedArray = [];
+                  var values = [];
+                  var value;
+                  for(var i = 0; i < originalArray.length; i++) {
+                    value = originalArray[i][objKey];
+                    if(values.indexOf(value) === -1) {
+                      trimmedArray.push(originalArray[i]);
+                      values.push(value);
+                    }
+                  }
+                  return trimmedArray;
+                }
+                const quotes = removeDuplicates(quote, 'MinPrice')
+            %>
+            <script>
+              console.log(<%- JSON.stringify(quotes) %>)
+            </script>
+            <ul class="cards">
+              <% for(var i = 0; i<quotes.length; i++) { %>
+              <%
+                let carrierId = quotes[i].OutboundLeg.CarrierIds[0]
+                let carrierName = carriers.find(carrier => {
+                  return carrierId === carrier.CarrierId
+                }).Name
+              %>
+              <li class="cards_item">
+                <div class="card">
+
+
+                <input id=opt1 type="checkbox" name="flights[]" value='<%- JSON.stringify({ carrier: carrierName, quote: quotes[i].MinPrice }) %>'>
+                <span> <%= carrierName %> </span>
+              <span> $ <%= quotes[i].MinPrice %> </span>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        <!-- insert font awesome- heart -->
+      </div>
+      <div class="main">
+        <h2>Hotel Accommodation</h2>
+        <ul class="hotel-container cards">
+          <%
+          const maxlodgings = Math.min(20, lodgings.length);
+           for (let i = 0; i < maxlodgings; i++) { %>
+            <li class="cards_item">
+              <div class="card">
+                <input checked='checked' class='red-heart-checkbox' id='red-check1' type='checkbox'>
+
+              <!-- <input class="checked' class='red-heart-checkbox" id="red-check1" id=opt2 type="checkbox" name="lodgings[]" value="<%= lodgings[i].name %>"> -->
+
+              <input  id=opt2 type="checkbox" name="lodgings[]" value="<%= lodgings[i].name %>">
+              <div class="title">
+                <h3>
+                  <%= lodgings[i].name %>
+                </h3>
+            </div>
+          <% if('photos' in lodgings[i]) { %>
+          <script>
+            fetch("https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=<%= lodgings[i].photos[0].photo_reference %>&key=AIzaSyDgBZAdYVo1gCLfgZIg15VQf3ey9N3fdtg", {
+              mode: "cors"
+            }).then(function(response){
+              //console.log(response)
+            })
+          </script>
+          <div class="card_image">
+            <!-- <input class="right"  id=opt2 type="checkbox" name="lodgings[]" value="<%= lodgings[i].name %>"> -->
+
+            <img class="apiImages"src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=<%= lodgings[i].photos[0].photo_reference %>&key=AIzaSyDgBZAdYVo1gCLfgZIg15VQf3ey9N3fdtg" alt="">
+
+          </div>
+          <% } %>
+          <!-- price_level -->
+          <!-- <% if('price_level' in lodgings[i]) { %>
+            <span>
+              price_level:
+            <% for(var j=0;j<=lodgings[i].price_level;j++) { %>
+              <% console.log('hi', lodgings[i].name) %>
+              $
+            <% } %>
+            </span>
+          <% } %> -->
+        </div>
+        </li>
+        <% } %>
+        </ul>
+      </div>
+      <div class="main">
+        <h2>Attractions</h2>
+        <ul class="cards">
+        <%
+        const max = Math.min(20, attractions.length);
+         for (let i = 0; i < max; i++) { %>
+          <li class="cards_item">
+            <div class="card">
+
+
+            <input  id=opt3 type="checkbox" name="attractions[]" value="<%= attractions[i].name %>">
+            <h3>
+        <%= attractions[i].name %>
+        </h3>
+        <% if('photos' in attractions[i]) { %>
+        <script>
+          fetch("https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=<%= attractions[i].photos[0].photo_reference %>&key=AIzaSyDgBZAdYVo1gCLfgZIg15VQf3ey9N3fdtg", {
+            mode: "cors"
+          }).then(function(response){
+            //console.log(response)
+          })
+        </script>
+        <div class="card_image">
+          <!-- <div class="right">
+            <input  id=opt3 type="checkbox" name="attractions[]" value="<%= attractions[i].name %>">
+
+          </div> -->
+
+            <img class="apiImages"src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=<%= attractions[i].photos[0].photo_reference %>&key=AIzaSyDgBZAdYVo1gCLfgZIg15VQf3ey9N3fdtg" alt="">
+      </div>
+
+        <% } %>
+        </div>
+      </li>
+      <% } %>
+
+</ul>
+<button type="Submit" name="" value="Submit">submit</button>
+  </form>
+<!-- remove -->
+<!-- <%= JSON.stringify (attractions) %> -->
+
+        </div>
+      </div>
+
+    <script src="destination.js"></script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+body {
+  background-color: #ecf9ff;
+
+}
+
+/* body{
+  background-color: rgba(117, 194, 190);
+} */
+.page-header {
+  text-align: right;
+}
+
+
+.page-header > a{
+  text-decoration: none;
+  color: grey;
+  font-size: 20px;
+}
+
+.home_search_button {
+  font-size: 15px;
+  color: white;
+  background-color: darkgrey;
+  border-radius: .3;
+}
+
+header {
+  height: 65.2px;
+  padding-bottom: 70px;
+    /* position: fixed; */
+    width: 100%;
+
+
+}
+
+h1{
+  font-size: 39px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  /* font-family: corner-store-jf; */
+  font-size: 2.3em;
+  font-weight: 300;
+  text-transform: none;
+  font-style: normal;
+  letter-spacing: .015em;
+  line-height: 1em;
+  text-decoration: none;
+  max-width: 100%;
+  /* display: inline-block; */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* margin: 0; */
+  color: darkgrey;
+  position: relative;
+  z-index: inherit;
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-align: center;
+  margin: auto;
+}
+.bar {
+height: 70vh;
+margin: 0;
+padding: 0;
+width: 100%;
+position: relative;
+top: 50vh;
+/* background: rgb(138, 182, 210); */
+background: rgba(117, 194, 190);
+
+}
+
+.container {
+    /* position: absolute; */
+    margin: auto;
+    top: -100px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 699px;
+    /* height: 325px; */
+    /* background-color: white; */
+    border-radius: 3px;
+    /* opacity: .8; */
+    -webkit-box-shadow:  0px 0px 10px 0px white;
+    box-shadow:  0px 0px 10px 0px white;
+    color: darkgrey;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 2px solid lightgrey;
+}
+
+.row {
+    margin: auto;
+    padding: 21px;
+    padding-left: 54px;
+}
+
+/* .section-search input {
+  padding: 5px !important;
+  font-size: 18px !important;
+  width: 90% !important;
+  border: #f4f4f4 3px solid !important;
+} */
+
+/* footer {
+  padding-bottom: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+ background-color: #317873;
+} */
+
+
+.card-panel {
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    padding: 27px;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 2px;
+    background-color: #fff;
+    /* width: 103.33%; */
+}

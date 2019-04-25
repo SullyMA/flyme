@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="../css/favorite.css"> -->
+    <link rel="stylesheet" href="../css/destination.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>FlyME</title>
+  </head>
+  <body>
+      <!-- <p class="welcome">Hi, again! </p> -->
+      <img class="userpic"src="" alt="">
+
+      <div class="wrapper">
+        <div>
+            <h2>Your Itinerary</h2>
+                <!-- <i class="fab fa-gratipay"></i> -->
+                <ul>
+                  <h3>
+                  <% if(Array.isArray(flights)) {%>
+                    <% for(let i = 0; i < flights.length; i ++) {%>
+                      <li>
+                        <span><%= flights[i].carrier %></span>
+                        <span>$<%= flights[i].quote %></span>
+                      </li>
+                      <% } %>
+                    <% } %>
+              </ul>
+              </h3>
+        </div>
+        <div>
+          <!-- <h2>Saved Hotel Accommodation</h2> -->
+          <link rel="stylesheet" href="/css/master.css">
+          <ul>
+            <h3>
+            <% if (lodgingplace) { %>
+            <% if(Array.isArray(lodgingplace)) {%>
+              <% for(let i = 0; i < lodgingplace.length; i ++) {%>
+                <li><%= lodgingplace[i] %></li>
+                <% } %>
+            <% } else { %>
+              <li><%= lodgingplace %></li>
+            <% } %>
+            <% } %>
+          </ul>
+          </h3>
+        </div>
+        <div>
+          <!-- <h2>Saved Activities</h2> -->
+            <ul>
+              <h3>
+          <!-- for loop -->
+          <!-- Save in the DB -->
+          <% if (locationplace) { %>
+          <% if(Array.isArray(locationplace)) {%>
+            <% for(let i = 0; i < locationplace.length; i ++) {%>
+              <li><%= locationplace[i] %></li>
+              <% } %>
+          <% } else { %>
+            <li><%= locationplace %></li>
+          <% } %>
+          <% } %>
+        </ul>
+        </h3>
+          <!-- <i class="fab fa-gratipay"></i> -->
+        </div>
+        </div>
+    <script src="main.js"></script>
+  </body>
+</html>

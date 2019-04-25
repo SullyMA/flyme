@@ -1,0 +1,54 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf9ff;
+
+}
+
+ul {
+  list-style-type: none;
+}
+
+.userpic {
+  height: 183px;
+  border-radius: 500px;
+  width: 185px;
+  border: 1px solid black;
+  display: block;
+}
+
+div .userpic span {
+  font-size: 30px;
+  color: black;
+
+}
+
+/* .flight {
+  border: 2px solid black;
+  width: 35.5%;
+  height: 750px;
+} */
+
+.header {
+  grid-template-columns: 100px;
+  border: 1px solid black;
+}
+
+.header p {
+  font-size: 50px;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.wrapper div {
+  border: 2px solid black;
+  width: 33.3333%;
+  height: 500px;
+
+}
